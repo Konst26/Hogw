@@ -5,10 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repositories.StudentRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-
 @Service
 public class StudentService {
 
@@ -32,7 +28,7 @@ public class StudentService {
 */
 
     public Student findStudent(long id) {
-        return studentRepository.getById(id);
+        return studentRepository.findById(id).get();
     }
 
 //        return students.get(id);
