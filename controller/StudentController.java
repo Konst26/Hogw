@@ -47,13 +47,19 @@ public class StudentController {
         studentService.deleteStudent(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping
+    public Collection<Student> findAll() {
+        return studentService.getAllStudent();
+    }
+
+    @GetMapping("byAgeBetween")
+    public Collection<Student> findByAgeBetween(@RequestParam int fromAge,
+                                                @RequestParam int toAge) {
+        return studentService.findByAgeBetween(fromAge, toAge);
+    }
 }
 
-/*    @GetMapping
-    public ResponseEntity<Collection<Student>> findStudent (@RequestParam(required = false) int age) {
-        if (age > 0) {
-            return ResponseEntity.ok(studentService.findByAge(age));
-        }
-        return ResponseEntity.ok(Collections.emptyList());
-    }
-*/
+
+
+
